@@ -1,4 +1,6 @@
-// components/ProductList.jsx
+// Task 3 Create the ProductList Component
+// this is the component of the ProductList.jsx for our cafe products
+
 import React from 'react';
 import ProductItem from './ProductItem';
 
