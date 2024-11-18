@@ -1,35 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// Task 2 Create the App Component
+import React, { useState } from 'react';
+import ProductList from './components/ProductList';
+import AddProductForm from './components/AddProductForm';
 
+//Now we create the products lisr
 function App() {
-  const [count, setCount] = useState(0)
+    const [products, setProducts] = useState([
+        { id: 1, name: 'Matcha Latte', price: 4.50, description: 'A creamy blend of matcha and milk.' },
+        { id: 2, name: 'Matcha Cheesecake', price: 5.00, description: 'A rich and tangy cheesecake infused with matcha.' },
+        { id: 3, name: 'Iced Matcha Tea', price: 4.00, description: 'Refreshing cold-brewed matcha tea.' }
+    ]);
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+// Function to add a new product
+const addProduct = (newProduct) => {
+  setProducts([...products, newProduct]);
+};
+
+    return (
+        <div>
+            <h1>Welcome to Matcha Café</h1>
+            <ProductList products={products} />
+            <AddProductForm addProduct={addProduct} />
+        </div>
+    );
 }
 
-export default App
+export default App;
